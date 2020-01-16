@@ -1,6 +1,8 @@
 import express from 'express';
 import cookieParse from 'cookie-parser';
 import config from './server/config';
+import userRoute from './server/routes/user';
+import authRoute from './server/routes/auth';
 
 //Db Connection
 require('./server/config/dbConnection');
@@ -10,6 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParse());
+
+//add route
+app.use('/', userRoute);
+app.use('/', authRoute);
 
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
