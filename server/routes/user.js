@@ -6,12 +6,14 @@ import {
   deleteUser
 } from '../controllers/user';
 
+import { requireSignin, hasAuthorization } from '../controllers/auth';
+
 const router = express.Router();
 router.route('/api/users').post(registerUser);
 router
   .route('api/users/:userId')
   .get(findUserProfile)
-  .delete(deleteUser);
+  .delete(requireSignin, hasAuthorization, deleteUser);
 
 router.param('userId', findUserById);
 

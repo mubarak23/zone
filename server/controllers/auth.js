@@ -16,21 +16,45 @@ export const signin = (req, res) => {
       });
     }
 
-    const token = jwt.sign({
+    const token = jwt.sign(
+      {
         _id: user._id
-    }, config.jwtScrete);
+      },
+      config.jwtScrete
+    );
 
     res.cookie('t', token, {
-        expire: new Date() + 9999
+      expire: new Date() + 9999
     });
     return res.json({
-        token,
-        user: {
-            _id: user._id, name: user.name, email: user.email
-        }
+      token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email
+      }
     });
-
   });
 };
 
+export const signout = (req, res) => {
+  res.clearCookie('t');
+  return res.status(200).json({
+    message: 'Sign out Successful!'
+  });
+};
 
+export const requireSignin = expressjwt({
+  secret: config.jwtScrete,
+  userProperty: 'auth'
+});
+
+export const hasAuthorization = (req, res) => {
+  const authorized = req.profile && req.profile._id == req.auth._id;
+
+  if (!authorized) {
+    return res.status(400).json({
+      error: 'User is not Authorized'
+    });
+  }
+};
