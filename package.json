@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "babel-watch index.js"
+    "start": "babel-watch index.js"
   },
   "repository": {
     "type": "git",
@@ -14,6 +14,7 @@
   "author": "Mubarak Aminu",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.8.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",

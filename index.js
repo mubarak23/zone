@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParse = require('cookie-parser');
-const config = require('./server/config');
+import config from './server/config/index';
 const userRoute = require('./server/routes/user');
 const authRoute = require('./server/routes/auth');
 
