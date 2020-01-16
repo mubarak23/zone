@@ -1,8 +1,8 @@
-import express from 'express';
-import cookieParse from 'cookie-parser';
-import config from './server/config';
-import userRoute from './server/routes/user';
-import authRoute from './server/routes/auth';
+const express = require('express');
+const cookieParse = require('cookie-parser');
+const config = require('./server/config');
+const userRoute = require('./server/routes/user');
+const authRoute = require('./server/routes/auth');
 
 //Db Connection
 require('./server/config/dbConnection');
