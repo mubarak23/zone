@@ -1,12 +1,12 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   registerUser,
   findUserById,
   findUserProfile,
   deleteUser
-} from '../controllers/user';
+} = require('../controllers/user');
 
-import { requireSignin, hasAuthorization } from '../controllers/auth';
+const { requireSignin, hasAuthorization } = require('../controllers/auth');
 
 const router = express.Router();
 router.route('/api/users').post(registerUser);
@@ -17,4 +17,4 @@ router
 
 router.param('userId', findUserById);
 
-export default router;
+module.exports = router;
