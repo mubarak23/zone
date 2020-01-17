@@ -1,4 +1,4 @@
-const getErrorMessage = err => {
+exports.getErrorMessage = err => {
   let message = '';
   if (err.code) {
     switch (err.code) {
@@ -34,4 +34,4 @@ const getUniqueErrorMessage = err => {
   return output;
 };
 
-export default { getErrorMessage };
+//export default { getErrorMessage };

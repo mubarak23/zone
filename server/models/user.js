@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import crypto from 'crypto';
+const mongoose = require('mongoose');
+const crypto = require('crypto');
 
 const Schema = mongoose.Schema;
 
@@ -56,13 +56,4 @@ userSchema.method = {
   }
 };
 
-userSchema.path('hashedPassword').validate(function(v) {
-  if (this.hashPassword && this._password.length < 6) {
-    this.invalidate('password', 'Password must be at least 6 character long.');
-  }
-  if (this.isNew && !this._password) {
-    this.invalidate('password', 'Password is required.');
-  }
-}, null);
-
-export default mongoose.model('Users', userSchema);
+module.exports = mongoose.model('Users', userSchema);

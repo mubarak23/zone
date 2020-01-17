@@ -1,7 +1,7 @@
-import Users from '../models/user';
-import errorHandler from '../helpers/dbErrorHandler';
+const Users = require('../models/user');
+const errorHandler = require('../helpers/dbErrorHandler');
 
-export const registerUser = (req, res, next) => {
+exports.registerUser = (req, res, next) => {
   const user = new Users(req.body);
   user.save((err, result) => {
     if (err) {
@@ -15,7 +15,7 @@ export const registerUser = (req, res, next) => {
   });
 };
 
-export const findUserById = (req, res, next, id) => {
+exports.findUserById = (req, res, next, id) => {
   Users.findById(id).exec((err, user) => {
     if (err || user) {
       return res.status(400).json({
@@ -27,12 +27,12 @@ export const findUserById = (req, res, next, id) => {
   });
 };
 
-export const findUserProfile = (req, res) => {
+exports.findUserProfile = (req, res) => {
   req.profile.hashedPassword = undefined;
   req.profile.salt = undefined;
   return res.json(req.profile);
 };
-export const deleteUser = (req, res, next) => {
+exports.deleteUser = (req, res, next) => {
   let user = req.profile;
   user.remove((err, deleteUser) => {
     if (err) {
