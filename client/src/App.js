@@ -3,6 +3,8 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
+import { BrowserRoute } from 'react-router-dom';
+import Routes from './Routes';
 
 import Home from './components/Home';
 
@@ -31,9 +33,11 @@ class App extends Component {
     //console.log(this.state.todos);
     return (
       <div>
-        <MuiThemeProvider theme={theme}>
-          <Home />
-        </MuiThemeProvider>
+        <BrowserRoute>
+          <MuiThemeProvider theme={theme}>
+            <Routes />
+          </MuiThemeProvider>
+        </BrowserRoute>
       </div>
     );
   }

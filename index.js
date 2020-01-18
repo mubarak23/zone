@@ -23,6 +23,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(config.port, () => {
-  console.log(`fly at port ${config.port}`);
+app.listen(8080, () => {
+  console.log(`fly at port 8080`);
 });
