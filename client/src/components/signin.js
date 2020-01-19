@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core/styles';
-import auth from '../components/auth/auth-help';
+import auth from './auth/auth-help';
 import { Redirect } from 'react-router-dom';
 import { signin } from '../../utils/api-auth.js';
 import { CardActions } from '@material-ui/core';
