@@ -37,7 +37,7 @@ class Profile extends Component {
     this.match = match;
   }
   init = userId => {
-    const jwt = auth.iaAuthenticated();
+    const jwt = auth.isAuthenticated();
     findUserProfile(
       {
         userId: userId
