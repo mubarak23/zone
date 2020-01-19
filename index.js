@@ -1,4 +1,5 @@
 const express = require('express');
+const mongooes = require('mongoose');
 const cookieParse = require('cookie-parser');
 const config = require('./server/config/index');
 const userRoute = require('./server/routes/user');
@@ -6,6 +7,7 @@ const authRoute = require('./server/routes/auth');
 
 //Db Connection
 require('./server/config/dbConnection');
+
 const app = express();
 
 //setup the middlware
