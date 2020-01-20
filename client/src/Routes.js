@@ -3,6 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PrivateRoutes from './components/PrivateRoute';
+import Signin from './components/Signin';
+import Profile from './components/Profile';
+import Signup from './components/Signup';
 
 class Routes extends Component {
   render() {
@@ -10,6 +13,10 @@ class Routes extends Component {
       <div>
         <Switch>
           <Route exact path='/' Component={Home} />
+          <PrivateRoutes path='/user/edit/:userId' />
+          <Route path='/user/:userId' Component={Profile} />
+          <Route path='/singup' Component={Signup} />
+          <Route path='/signin' Component={signin} />
         </Switch>
       </div>
     );
