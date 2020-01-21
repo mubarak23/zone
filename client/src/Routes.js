@@ -16,7 +16,7 @@ class Routes extends Component {
           <PrivateRoutes path='/user/edit/:userId' />
           <Route path='/user/:userId' Component={Profile} />
           <Route path='/singup' Component={Signup} />
-          <Route path='/signin' Component={signin} />
+          <Route path='/signin' Component={Signin} />
         </Switch>
       </div>
     );

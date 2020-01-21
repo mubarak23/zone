@@ -61,9 +61,9 @@ class Signin extends Component {
       }
     });
   };
-  handleChange = (name = event => {
-    this.setState({ [name]: event.target.value });
-  });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
   render() {
     const { classes } = this.props;
     const { from } = this.props.location.state || {

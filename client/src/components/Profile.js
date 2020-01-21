@@ -29,7 +29,7 @@ const styles = theme => ({
 
 class Profile extends Component {
   constructor({ match }) {
-    super(props);
+    super();
     this.state = {
       user: '',
       redirectTosignin: false
