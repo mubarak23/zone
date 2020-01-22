@@ -12,7 +12,7 @@ import Person from '@material-ui/icons/Person';
 import Divider from '@material-ui/core/Divider';
 import auth from '../components/auth/auth-help';
 import { findUserByProfile } from '../util/api-user';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import DeleteUser from './DeleteUser';
 
 const styles = theme => ({
@@ -83,7 +83,7 @@ class Profile extends Component {
               secondary={this.state.user.email}
             />{' '}
             {auth.isAuthenticated().user &&
-              auth.isAuthenticated().user._id == this.state.user._id && (
+              auth.isAuthenticated().user._id === this.state.user._id && (
                 <ListItemSecondaryAction>
                   <DeleteUser userId={this.state.user._id} />
                 </ListItemSecondaryAction>

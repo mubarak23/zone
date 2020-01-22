@@ -11,6 +11,7 @@ class Routes extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <Switch>
           <Route exact path='/' Component={Home} />
           <PrivateRoutes path='/user/edit/:userId' />
