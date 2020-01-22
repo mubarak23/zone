@@ -9,7 +9,7 @@ import Icon from '@material-ui/core/Icon';
 import { withStyles } from '@material-ui/core/styles';
 import auth from './auth/auth-help';
 import { Redirect } from 'react-router-dom';
-import { signin } from '../../utils/api-auth.js';
+import { signin } from '../util/api-auth';
 import { CardActions } from '@material-ui/core';
 
 const styles = theme => ({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Person from '@material-ui/icons/Person';
 import Divider from '@material-ui/core/Divider';
 import auth from '../components/auth/auth-help';
-import { findUserProfile } from '../../utils/api-user.js';
+import { findUserProfile } from '../util/api-user';
 import { Redirect, Link } from 'react-router-dom';
 import DeleteUser from './DeleteUser';
 
@@ -32,7 +33,7 @@ class Profile extends Component {
     super();
     this.state = {
       user: '',
-      redirectTosignin: ''
+      redirectToSignin: false
     };
     this.match = match;
   }
@@ -61,9 +62,9 @@ class Profile extends Component {
   };
   render() {
     const { classes } = this.props;
-    const redirectTosignin = this.state.redirectTosignin;
-    if (redirectTosignin) {
-      <Redirect to='signin' />;
+    const redirectToSignin = this.state.redirectToSignin;
+    if (redirectToSignin) {
+      return <Redirect to='signin' />;
     }
     return (
       <Paper className={classes.root} elevation={4}>
