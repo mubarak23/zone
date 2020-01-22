@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Person from '@material-ui/icons/Person';
 import Divider from '@material-ui/core/Divider';
 import auth from '../components/auth/auth-help';
-import { findUserProfile } from '../util/api-user';
+import { findUserByProfile } from '../util/api-user';
 import { Redirect, Link } from 'react-router-dom';
 import DeleteUser from './DeleteUser';
 
@@ -39,7 +39,7 @@ class Profile extends Component {
   }
   init = userId => {
     const jwt = auth.isAuthenticated();
-    findUserProfile(
+    findUserByProfile(
       {
         userId: userId
       },
