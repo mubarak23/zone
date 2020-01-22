@@ -32,7 +32,7 @@ class Profile extends Component {
     super();
     this.state = {
       user: '',
-      redirectTosignin: false
+      redirectTosignin: ''
     };
     this.match = match;
   }
@@ -94,4 +94,4 @@ class Profile extends Component {
     );
   }
 }
-export default withStyles(theme)(Profile);
+export default withStyles(styles)(Profile);
