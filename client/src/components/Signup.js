@@ -50,9 +50,9 @@ class Signup extends Component {
     error: ''
   };
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  handleChange = name => event => {
+		this.setState({ [name]: event.target.value });
+	};
 
   clicksubmit = () => {
     const user = {
@@ -73,6 +73,7 @@ class Signup extends Component {
     const { classes } = this.props;
     return (
       <div>
+        <h2>Welcome Home Guys</h2>
         <Card className={classes.card}>
           <CardContent>
             <Typography
@@ -84,6 +85,7 @@ class Signup extends Component {
             </Typography>
             <TextField
               id='name'
+              name='name'
               label='Name'
               className={classes.textField}
               value={this.state.name}
@@ -94,6 +96,7 @@ class Signup extends Component {
             <TextField
               id='email'
               type='email'
+              name='email'
               label='Email'
               className={classes.textField}
               value={this.state.email}
@@ -104,6 +107,7 @@ class Signup extends Component {
             <TextField
               id='password'
               type='password'
+              name='password'
               label='Password'
               className={classes.textField}
               value={this.state.password}

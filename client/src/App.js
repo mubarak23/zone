@@ -4,6 +4,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 import { BrowserRouter } from 'react-router-dom';
+import Home from '../src/components/Home';
 import Routes from './Routes';
 
 //import Home from './components/Home';

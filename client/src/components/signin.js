@@ -61,8 +61,8 @@ class Signin extends Component {
       }
     });
   };
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
   };
   render() {
     const { classes } = this.props;
@@ -77,6 +77,7 @@ class Signin extends Component {
     }
     return (
       <div>
+        <h1>Welcome Home</h1>
         <Card className={classes.Card}>
           <CardContent>
             <Typography
@@ -89,6 +90,7 @@ class Signin extends Component {
             <TextField
               id='email'
               type='email'
+              name='email'
               label='email'
               className={classes.TextField}
               value={this.state.email}
@@ -99,6 +101,7 @@ class Signin extends Component {
             <TextField
               id='password'
               type='password'
+              name='password'
               label='Password'
               className={classes.textField}
               value={this.state.password}
