@@ -1,7 +1,7 @@
 import { signout } from '../../util/api-auth';
 
 const auth = {
-  iaAuthenticated() {
+  isAuthenticated() {
     if (typeof window === 'undefined') return false;
 
     if (sessionStorage.getItem('jwt')) {

@@ -9,7 +9,7 @@ import auth from '../components/auth/auth-help';
 import { Link, withRouter } from 'react-router-dom';
 
 const isActive = (path, history) => {
-  if (history.location.pathname == path) return { color: '#F44336' };
+  if (history.location === path) return { color: '#F44336' };
   else return { color: '#ffffff' };
 };
 const Menu = withRouter(({ history }) => (
