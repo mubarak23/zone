@@ -51,8 +51,8 @@ class Signup extends Component {
   };
 
   handleChange = name => event => {
-		this.setState({ [name]: event.target.value });
-	};
+    this.setState({ [name]: event.target.value });
+  };
 
   clicksubmit = () => {
     const user = {
@@ -73,7 +73,6 @@ class Signup extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <h2>Welcome Home Guys</h2>
         <Card className={classes.card}>
           <CardContent>
             <Typography

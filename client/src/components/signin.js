@@ -24,17 +24,17 @@ const styles = theme => ({
     verticalAlign: 'middle'
   },
   title: {
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing(5),
     color: theme.palette.openTitle
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 300
   },
   submit: {
     margin: 'auto',
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(5)
   }
 });
 
@@ -65,7 +65,6 @@ class Signin extends Component {
     this.setState({ [name]: event.target.value });
   };
   render() {
-    const { classes } = this.props;
     const { from } = this.props.location.state || {
       from: {
         pathname: '/'
@@ -75,10 +74,10 @@ class Signin extends Component {
     if (redirectToReferrer) {
       return <Redirect to={from} />;
     }
+    const { classes } = this.props;
     return (
       <div>
-        <h1>Welcome Home</h1>
-        <Card className={classes.Card}>
+        <Card className={classes.card}>
           <CardContent>
             <Typography
               type='headline'
@@ -90,9 +89,8 @@ class Signin extends Component {
             <TextField
               id='email'
               type='email'
-              name='email'
               label='email'
-              className={classes.TextField}
+              className={classes.textField}
               value={this.state.email}
               onChange={this.handleChange('email')}
               margin='normal'
@@ -101,7 +99,6 @@ class Signin extends Component {
             <TextField
               id='password'
               type='password'
-              name='password'
               label='Password'
               className={classes.textField}
               value={this.state.password}
