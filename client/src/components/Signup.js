@@ -46,7 +46,7 @@ class Signup extends Component {
     name: '',
     password: '',
     email: '',
-    open: '',
+    open: false,
     error: ''
   };
 
@@ -126,7 +126,7 @@ class Signup extends Component {
           <CardActions>
             <Button
               color='primary'
-              variant='raised'
+              variant='contained'
               onClick={this.clickSubmit}
               className={classes.submit}
             >
