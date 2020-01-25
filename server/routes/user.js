@@ -9,7 +9,7 @@ const {
 const { requireSignin, hasAuthorization } = require('../controllers/auth');
 
 const router = express.Router();
-router.route('/api/users').post(registerUser);
+router.route('/api/user').post(registerUser);
 router
   .route('api/users/:userId')
   .get(findUserProfile)

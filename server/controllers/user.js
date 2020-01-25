@@ -2,6 +2,7 @@ const Users = require('../models/user');
 const errorHandler = require('../helpers/dbErrorHandler');
 
 exports.registerUser = (req, res, next) => {
+  //console.log(req.body);
   const user = new Users(req.body);
   user.save((err, result) => {
     if (err) {
