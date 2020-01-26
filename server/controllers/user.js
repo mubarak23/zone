@@ -1,9 +1,16 @@
 const Users = require('../models/user');
 const errorHandler = require('../helpers/dbErrorHandler');
+const bcrypt = require('bcryptjs');
 
 exports.registerUser = (req, res, next) => {
   //console.log(req.body);
-  const user = new Users(req.body);
+  const { name, email, password } = req.body;
+  console.log(email);
+  const user = new Users({
+    name,
+    email,
+    password
+  });
   user.save((err, result) => {
     if (err) {
       return res.status(400).json({
@@ -14,6 +21,33 @@ exports.registerUser = (req, res, next) => {
       message: 'Nuew User Registered Successfully!'
     });
   });
+};
+
+exports.createUser = (req, res) => {
+  //return res.json(req.body);
+  const { name, email, password } = req.body;
+  //return res.json(name);
+  const user = new Users({
+    name,
+    email,
+    password
+  });
+
+  const salt = bcrypt.genSalt(10);
+  return res.json();
+  user.password = bcrypt.hash(password, salt);
+  user
+    .save()
+    .then(user => {
+      return res.status(200).json({
+        user
+      });
+    })
+    .catch(error => {
+      return res.status(400).json({
+        error
+      });
+    });
 };
 
 exports.findUserById = (req, res, next, id) => {

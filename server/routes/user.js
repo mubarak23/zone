@@ -3,13 +3,14 @@ const {
   registerUser,
   findUserById,
   findUserProfile,
-  deleteUser
+  deleteUser,
+  createUser
 } = require('../controllers/user');
 
 const { requireSignin, hasAuthorization } = require('../controllers/auth');
 
 const router = express.Router();
-router.route('/api/user').post(registerUser);
+router.route('/api/user').post(createUser);
 router
   .route('api/users/:userId')
   .get(findUserProfile)

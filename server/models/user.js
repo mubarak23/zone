@@ -56,4 +56,20 @@ userSchema.method = {
   }
 };
 
-module.exports = mongoose.model('Users', userSchema);
+const mainUserSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+});
+
+module.exports = mongoose.model('Users', mainUserSchema);
