@@ -25,6 +25,10 @@ app.post('/api/test', function(req, res) {
   //res.json(req.body);
 });
 
+//app.get('/api/user/:userId', function(req, res) {
+//res.send('Good Here');
+//});
+
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401).json({ error: err.name + ':' + err.message });

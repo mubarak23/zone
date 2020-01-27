@@ -54,8 +54,9 @@ exports.createUser = async (req, res) => {
   }
 };
 
-exports.findUserById = (req, res, next, id) => {
-  Users.findById(id).exec((err, user) => {
+exports.findUserById = (req, res, next) => {
+  // return res.send(req.params.userId);
+  Users.findById(req.param.userId).exec((err, user) => {
     if (err || user) {
       return res.status(400).json({
         error: 'No User found with that credentials'
@@ -64,6 +65,22 @@ exports.findUserById = (req, res, next, id) => {
     req.profile = user;
     next();
   });
+};
+
+exports.findUserWithId = (req, res) => {
+  Users.findById({ _id: req.params.userId })
+    .then(user => {
+      return res.status(200).json({
+        status: 'success',
+        data: user
+      });
+    })
+    .catch(error => {
+      return res.status(400).json({
+        status: error,
+        message: 'Unable to find user'
+      });
+    });
 };
 
 exports.findUserProfile = (req, res) => {
