@@ -83,12 +83,30 @@ exports.findUserWithId = (req, res) => {
     });
 };
 
+exports.deleteUser = (req, res) => {
+  Users.findOneAndDelete({ _id: req.params.id })
+    .then(() => {
+      return res.status(200).json({
+        status: 'Success',
+        data: {
+          message: 'User Deleted Successfully'
+        }
+      });
+    })
+    .catch(error => {
+      return res.status(400).json({
+        status: error,
+        error: 'Unable to delete article'
+      });
+    });
+};
+
 exports.findUserProfile = (req, res) => {
   req.profile.hashedPassword = undefined;
   req.profile.salt = undefined;
   return res.json(req.profile);
 };
-exports.deleteUser = (req, res, next) => {
+exports.delete = (req, res, next) => {
   let user = req.profile;
   user.remove((err, deleteUser) => {
     if (err) {
